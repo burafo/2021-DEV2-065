@@ -1,183 +1,52 @@
 package com.buraliforti.berlinuhr.domain.converters
 
-import com.buraliforti.berlinuhr.R
+import com.buraliforti.berlinuhr.models.domain.BerlinUhrModel
 import com.buraliforti.berlinuhr.models.domain.HoursMinutesSecondsModel
-import com.buraliforti.berlinuhr.models.presentation.BerlinUhrLampShape
-import com.buraliforti.berlinuhr.models.presentation.BerlinUhrLampShapeColorModel
 import com.buraliforti.berlinuhr.models.presentation.BerlinUhrShapeColorModel
 import com.google.common.truth.Truth.assertThat
+import io.mockk.every
+import io.mockk.impl.annotations.MockK
+import io.mockk.junit5.MockKExtension
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
 
 /**
  * Test of [HoursMinutesSecondsToBerlinUhrShapeColorModelConverterImpl]
  */
+@ExtendWith(MockKExtension::class)
 internal class HoursMinutesSecondsToBerlinUhrShapeColorModelConverterImplTest {
+
+    @MockK
+    private lateinit var toBerlinUhrModelConverter: HoursMinutesSecondsToBerlinUhrModelConverter
+
+    @MockK
+    private lateinit var toBerlinUhrShapeColorModelConverter: BerlinUhrModelToBerlinUhrShapeColorModelConverter
+
+    @MockK
+    private lateinit var hoursMinutesSecondsModel: HoursMinutesSecondsModel
+
+    @MockK
+    private lateinit var berlinUhrModel: BerlinUhrModel
+
+    @MockK
+    private lateinit var berlinUhrShapeColorModel: BerlinUhrShapeColorModel
 
     private lateinit var converter: HoursMinutesSecondsToBerlinUhrShapeColorModelConverter
 
     @BeforeEach
     fun setUp() {
-        converter = HoursMinutesSecondsToBerlinUhrShapeColorModelConverterImpl()
+        converter = HoursMinutesSecondsToBerlinUhrShapeColorModelConverterImpl(
+            toBerlinUhrModelConverter = toBerlinUhrModelConverter,
+            toBerlinUhrShapeColorModelConverter = toBerlinUhrShapeColorModelConverter)
     }
 
     @Test
-    fun convert_minTimeValue() {
-        assertThat(converter.convert(HoursMinutesSecondsModel(hours = 0, minutes = 0, seconds = 0)))
-            .isEqualTo(BerlinUhrShapeColorModel(
-                secondsRowLamps = listOf(whiteCircleLampOff),
-                multiHoursRowLamps = listOf(
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff),
-                hoursRowLamps = listOf(
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff),
-                multiMinutesRowLamps = listOf(
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff),
-                minutesRowLamps = listOf(
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff)
-            ))
+    fun convert() {
+        every { toBerlinUhrModelConverter.convert(hoursMinutesSecondsModel) } returns berlinUhrModel
+        every { toBerlinUhrShapeColorModelConverter.convert(berlinUhrModel) } returns berlinUhrShapeColorModel
+
+        assertThat(converter.convert(hoursMinutesSecondsModel))
+            .isEqualTo(berlinUhrShapeColorModel)
     }
-
-    @Test
-    fun convert_MaxTimeValue() {
-        assertThat(converter.convert(HoursMinutesSecondsModel(hours = 23, minutes = 59, seconds = 59)))
-            .isEqualTo(BerlinUhrShapeColorModel(
-                secondsRowLamps = listOf(yellowCircleLampOn),
-                multiHoursRowLamps = listOf(
-                    redRectangleLampOn,
-                    redRectangleLampOn,
-                    redRectangleLampOn,
-                    redRectangleLampOn),
-                hoursRowLamps = listOf(
-                    redRectangleLampOn,
-                    redRectangleLampOn,
-                    redRectangleLampOn,
-                    whiteRectangleLampOff),
-                multiMinutesRowLamps = listOf(
-                    yellowRectangleLampOn,
-                    yellowRectangleLampOn,
-                    redRectangleLampOn,
-                    yellowRectangleLampOn,
-                    yellowRectangleLampOn,
-                    redRectangleLampOn,
-                    yellowRectangleLampOn,
-                    yellowRectangleLampOn,
-                    redRectangleLampOn,
-                    yellowRectangleLampOn,
-                    yellowRectangleLampOn),
-                minutesRowLamps = listOf(
-                    yellowRectangleLampOn,
-                    yellowRectangleLampOn,
-                    yellowRectangleLampOn,
-                    yellowRectangleLampOn)
-            ))
-    }
-
-    @Test
-    fun convert_CertainTime_16_50_06() {
-        assertThat(converter.convert(HoursMinutesSecondsModel(hours = 16, minutes = 50, seconds = 6)))
-            .isEqualTo(BerlinUhrShapeColorModel(
-                secondsRowLamps = listOf(yellowCircleLampOn),
-                multiHoursRowLamps = listOf(
-                    redRectangleLampOn,
-                    redRectangleLampOn,
-                    redRectangleLampOn,
-                    whiteRectangleLampOff),
-                hoursRowLamps = listOf(
-                    redRectangleLampOn,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff),
-                multiMinutesRowLamps = listOf(
-                    yellowRectangleLampOn,
-                    yellowRectangleLampOn,
-                    redRectangleLampOn,
-                    yellowRectangleLampOn,
-                    yellowRectangleLampOn,
-                    redRectangleLampOn,
-                    yellowRectangleLampOn,
-                    yellowRectangleLampOn,
-                    redRectangleLampOn,
-                    yellowRectangleLampOn,
-                    whiteRectangleLampOff),
-                minutesRowLamps = listOf(
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff)
-            ))
-    }
-
-    @Test
-    fun convert_CertainTime_11_37_01() {
-        assertThat(converter.convert(HoursMinutesSecondsModel(hours = 11, minutes = 37, seconds = 1)))
-            .isEqualTo(BerlinUhrShapeColorModel(
-                secondsRowLamps = listOf(whiteCircleLampOff),
-                multiHoursRowLamps = listOf(
-                    redRectangleLampOn,
-                    redRectangleLampOn,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff),
-                hoursRowLamps = listOf(
-                    redRectangleLampOn,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff),
-                multiMinutesRowLamps = listOf(
-                    yellowRectangleLampOn,
-                    yellowRectangleLampOn,
-                    redRectangleLampOn,
-                    yellowRectangleLampOn,
-                    yellowRectangleLampOn,
-                    redRectangleLampOn,
-                    yellowRectangleLampOn,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff),
-                minutesRowLamps = listOf(
-                    yellowRectangleLampOn,
-                    yellowRectangleLampOn,
-                    whiteRectangleLampOff,
-                    whiteRectangleLampOff)
-            ))
-    }
-
-    private val redRectangleLampOn = BerlinUhrLampShapeColorModel(
-        color = R.color.red, shape = BerlinUhrLampShape.RECTANGLE, isLampOn = true
-    )
-
-    private val yellowRectangleLampOn = BerlinUhrLampShapeColorModel(
-        color = R.color.yellow, shape = BerlinUhrLampShape.RECTANGLE, isLampOn = true
-    )
-
-    private val whiteRectangleLampOff = BerlinUhrLampShapeColorModel(
-        color = R.color.white, shape = BerlinUhrLampShape.RECTANGLE, isLampOn = false
-    )
-
-    private val yellowCircleLampOn = BerlinUhrLampShapeColorModel(
-        color = R.color.yellow, shape = BerlinUhrLampShape.CIRCLE, isLampOn = true
-    )
-
-    private val whiteCircleLampOff = BerlinUhrLampShapeColorModel(
-        color = R.color.white, shape = BerlinUhrLampShape.CIRCLE, isLampOn = false
-    )
 }

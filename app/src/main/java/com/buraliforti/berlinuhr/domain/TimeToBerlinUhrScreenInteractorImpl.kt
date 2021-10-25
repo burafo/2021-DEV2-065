@@ -18,12 +18,6 @@ class TimeToBerlinUhrScreenInteractorImpl @Inject constructor(
      * @return model of Berlin Uhr in the form of 5 rows of lamps different in shapes and colors
      */
     override fun getBerlinUhrShapeColorModelFromInputTime(input: HoursMinutesSecondsModel): BerlinUhrShapeColorModel {
-        return BerlinUhrShapeColorModel(
-            emptyList(),
-            emptyList(),
-            emptyList(),
-            emptyList(),
-            emptyList()
-        )
+        return converter.convert(input)
     }
 }

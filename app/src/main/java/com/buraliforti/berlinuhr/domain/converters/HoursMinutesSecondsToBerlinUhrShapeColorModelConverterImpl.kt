@@ -7,16 +7,14 @@ import javax.inject.Inject
 /**
  * Implementation of [HoursMinutesSecondsToBerlinUhrShapeColorModelConverter]
  */
-class HoursMinutesSecondsToBerlinUhrShapeColorModelConverterImpl @Inject constructor() :
+class HoursMinutesSecondsToBerlinUhrShapeColorModelConverterImpl @Inject constructor(
+    private val toBerlinUhrModelConverter: HoursMinutesSecondsToBerlinUhrModelConverter,
+    private val toBerlinUhrShapeColorModelConverter: BerlinUhrModelToBerlinUhrShapeColorModelConverter,
+) :
     HoursMinutesSecondsToBerlinUhrShapeColorModelConverter {
 
     override fun convert(from: HoursMinutesSecondsModel): BerlinUhrShapeColorModel {
-        return BerlinUhrShapeColorModel(
-            emptyList(),
-            emptyList(),
-            emptyList(),
-            emptyList(),
-            emptyList()
-        )
+        val berlinUhrModel = toBerlinUhrModelConverter.convert(from)
+        return toBerlinUhrShapeColorModelConverter.convert(berlinUhrModel)
     }
 }

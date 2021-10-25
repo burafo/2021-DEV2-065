@@ -65,4 +65,28 @@ internal class HoursMinutesSecondsToBerlinUhrModelConverterImplTest {
                 minutesLightOnCount = 2
             ))
     }
+
+    @Test
+    fun convert_CertainTime_16_50_06(){
+        assertThat(converter.convert(HoursMinutesSecondsModel(hours = 16, minutes = 50, seconds = 6)))
+            .isEqualTo(BerlinUhrModel(
+                secondsRowLightsOnCount = 1,
+                multiHoursLightOnCount = 3,
+                HoursLightOnCount = 1,
+                multiMinutesLightOnCount = 10,
+                minutesLightOnCount = 0
+            ))
+    }
+
+    @Test
+    fun convert_CertainTime_11_37_01(){
+        assertThat(converter.convert(HoursMinutesSecondsModel(hours = 11, minutes = 37, seconds = 1)))
+            .isEqualTo(BerlinUhrModel(
+                secondsRowLightsOnCount = 0,
+                multiHoursLightOnCount = 2,
+                HoursLightOnCount = 1,
+                multiMinutesLightOnCount = 7,
+                minutesLightOnCount = 2
+            ))
+    }
 }
