@@ -17,9 +17,9 @@ and maybe the shape and location of the lamps. Therefore, in the architecture of
 is the reason I created so many interfaces.
 
 ## ToDos
-Add more Unit and UI tests 
-Delete all unnecessary dependencies and files
-SplashScreen and/or ProgressBar
-User input time converters
-Use of Jetpack Compose
-Consider adding multiple lamp color schemes and themes
+- Add more Unit and UI tests 
+- Delete all unnecessary dependencies and files
+- SplashScreen and/or ProgressBar
+- User input time converters
+- Use of Jetpack Compose
+- Consider adding multiple lamp color schemes and themes
