@@ -1,0 +1,33 @@
+buildscript {
+
+    // Libraries
+    ext.lifecycle_version = '2.3.1'
+    ext.buildgradle_version = '7.0.0'
+    ext.daggerhilt_version = "2.38.1"
+    ext.kotlin_version = "1.5.31"
+
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:$buildgradle_version"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$daggerhilt_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "de.mannodermaus.gradle.plugins:android-junit5:1.6.2.0"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
