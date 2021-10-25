@@ -3,6 +3,7 @@ package com.buraliforti.berlinuhr.presentation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.buraliforti.berlinuhr.R.id.content_container
+import com.buraliforti.berlinuhr.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
