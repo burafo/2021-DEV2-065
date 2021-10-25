@@ -1,3 +1,27 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="constraint_match_parent">0dp</dimen>
+
+    <!-- Margins -->
+    <dimen name="no_margin">0dp</dimen>
+    <dimen name="margin_tiny">2dp</dimen>
+    <dimen name="margin_xxxsmall">4dp</dimen>
+    <dimen name="margin_xxsmall">6dp</dimen>
+    <dimen name="margin_xsmall">8dp</dimen>
+    <dimen name="margin_small">10dp</dimen>
+    <dimen name="margin_medium_small">12dp</dimen>
+    <dimen name="margin_xmedium_small">14dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_medium_large">20dp</dimen>
+    <dimen name="margin_xmedium_large">22dp</dimen>
+    <dimen name="margin_xxmedium_large">24dp</dimen>
+    <dimen name="margin_xxxmedium_large">28dp</dimen>
+    <dimen name="margin_medium_xxxlarge">40dp</dimen>
+
+    <!-- Guidelines -->
+    <dimen name="guideline_33">0.33</dimen>
+    <dimen name="guideline_50">0.50</dimen>
+    <dimen name="guideline_66">0.66</dimen>
+    <dimen name="guideline_83">0.83</dimen>
+
 </resources>

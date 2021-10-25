@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/berlin_uhr_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".presentation.BerlinUhrFragment">
+
+    <!--region Seconds row -->
+    <View
+        android:id="@+id/seconds_lamp"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_margin="@dimen/margin_xxxmedium_large"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_33"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@drawable/circle_lamp" />
+    <!-- endregion -->
+
+    <!--region MultiHours row -->
+    <View
+        android:id="@+id/multi_hours_lamp_1"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_margin="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_50"
+        app:layout_constraintEnd_toStartOf="@id/multi_hours_lamp_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline_33"
+        tools:background="@color/red" />
+
+    <View
+        android:id="@+id/multi_hours_lamp_2"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_margin="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_50"
+        app:layout_constraintEnd_toStartOf="@id/multi_hours_lamp_3"
+        app:layout_constraintStart_toEndOf="@id/multi_hours_lamp_1"
+        app:layout_constraintTop_toTopOf="@id/guideline_33"
+        tools:background="@color/red" />
+
+    <View
+        android:id="@+id/multi_hours_lamp_3"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_margin="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_50"
+        app:layout_constraintEnd_toStartOf="@id/multi_hours_lamp_4"
+        app:layout_constraintStart_toEndOf="@id/multi_hours_lamp_2"
+        app:layout_constraintTop_toTopOf="@id/guideline_33"
+        tools:background="@color/red" />
+
+    <View
+        android:id="@+id/multi_hours_lamp_4"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_margin="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_50"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/multi_hours_lamp_3"
+        app:layout_constraintTop_toTopOf="@id/guideline_33"
+        tools:background="@color/red" />
+    <!-- endregion -->
+
+    <!--region Hours row -->
+    <View
+        android:id="@+id/hours_lamp_1"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_margin="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_66"
+        app:layout_constraintEnd_toStartOf="@id/hours_lamp_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline_50"
+        tools:background="@color/red" />
+
+    <View
+        android:id="@+id/hours_lamp_2"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_margin="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_66"
+        app:layout_constraintEnd_toStartOf="@id/hours_lamp_3"
+        app:layout_constraintStart_toEndOf="@id/hours_lamp_1"
+        app:layout_constraintTop_toTopOf="@id/guideline_50"
+        tools:background="@color/red" />
+
+    <View
+        android:id="@+id/hours_lamp_3"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_margin="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_66"
+        app:layout_constraintEnd_toStartOf="@id/hours_lamp_4"
+        app:layout_constraintStart_toEndOf="@id/hours_lamp_2"
+        app:layout_constraintTop_toTopOf="@id/guideline_50"
+        tools:background="@color/red" />
+
+    <View
+        android:id="@+id/hours_lamp_4"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_margin="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_66"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/hours_lamp_3"
+        app:layout_constraintTop_toTopOf="@id/guideline_50"
+        tools:background="@color/red" />
+    <!-- endregion -->
+
+    <!--region MultiMinutes row -->
+    <View
+        android:id="@+id/multi_minutes_lamp_1"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_xxxsmall"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_83"
+        app:layout_constraintEnd_toStartOf="@id/multi_minutes_lamp_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline_66"
+        tools:background="@color/yellow" />
+
+    <View
+        android:id="@+id/multi_minutes_lamp_2"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_xxxsmall"
+        android:layout_marginStart="@dimen/margin_xxxsmall"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_83"
+        app:layout_constraintEnd_toStartOf="@id/multi_minutes_lamp_3"
+        app:layout_constraintStart_toEndOf="@id/multi_minutes_lamp_1"
+        app:layout_constraintTop_toTopOf="@id/guideline_66"
+        tools:background="@color/yellow" />
+
+    <View
+        android:id="@+id/multi_minutes_lamp_3"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_xxxsmall"
+        android:layout_marginStart="@dimen/margin_xxxsmall"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_83"
+        app:layout_constraintEnd_toStartOf="@id/multi_minutes_lamp_4"
+        app:layout_constraintStart_toEndOf="@id/multi_minutes_lamp_2"
+        app:layout_constraintTop_toTopOf="@id/guideline_66"
+        tools:background="@color/red" />
+
+    <View
+        android:id="@+id/multi_minutes_lamp_4"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_xxxsmall"
+        android:layout_marginStart="@dimen/margin_xxxsmall"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_83"
+        app:layout_constraintEnd_toStartOf="@id/multi_minutes_lamp_5"
+        app:layout_constraintStart_toEndOf="@id/multi_minutes_lamp_3"
+        app:layout_constraintTop_toTopOf="@id/guideline_66"
+        tools:background="@color/yellow" />
+
+    <View
+        android:id="@+id/multi_minutes_lamp_5"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_xxxsmall"
+        android:layout_marginStart="@dimen/margin_xxxsmall"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_83"
+        app:layout_constraintEnd_toStartOf="@id/multi_minutes_lamp_6"
+        app:layout_constraintStart_toEndOf="@id/multi_minutes_lamp_4"
+        app:layout_constraintTop_toTopOf="@id/guideline_66"
+        tools:background="@color/yellow" />
+
+    <View
+        android:id="@+id/multi_minutes_lamp_6"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_xxxsmall"
+        android:layout_marginStart="@dimen/margin_xxxsmall"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_83"
+        app:layout_constraintEnd_toStartOf="@id/multi_minutes_lamp_7"
+        app:layout_constraintStart_toEndOf="@id/multi_minutes_lamp_5"
+        app:layout_constraintTop_toTopOf="@id/guideline_66"
+        tools:background="@color/red" />
+
+    <View
+        android:id="@+id/multi_minutes_lamp_7"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_xxxsmall"
+        android:layout_marginStart="@dimen/margin_xxxsmall"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_83"
+        app:layout_constraintEnd_toStartOf="@id/multi_minutes_lamp_8"
+        app:layout_constraintStart_toEndOf="@id/multi_minutes_lamp_6"
+        app:layout_constraintTop_toTopOf="@id/guideline_66"
+        tools:background="@color/yellow" />
+
+    <View
+        android:id="@+id/multi_minutes_lamp_8"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_xxxsmall"
+        android:layout_marginStart="@dimen/margin_xxxsmall"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_83"
+        app:layout_constraintEnd_toStartOf="@id/multi_minutes_lamp_9"
+        app:layout_constraintStart_toEndOf="@id/multi_minutes_lamp_7"
+        app:layout_constraintTop_toTopOf="@id/guideline_66"
+        tools:background="@color/yellow" />
+
+    <View
+        android:id="@+id/multi_minutes_lamp_9"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_xxxsmall"
+        android:layout_marginStart="@dimen/margin_xxxsmall"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_83"
+        app:layout_constraintEnd_toStartOf="@id/multi_minutes_lamp_10"
+        app:layout_constraintStart_toEndOf="@id/multi_minutes_lamp_8"
+        app:layout_constraintTop_toTopOf="@id/guideline_66"
+        tools:background="@color/red" />
+
+    <View
+        android:id="@+id/multi_minutes_lamp_10"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_xxxsmall"
+        android:layout_marginStart="@dimen/margin_xxxsmall"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_83"
+        app:layout_constraintEnd_toStartOf="@id/multi_minutes_lamp_11"
+        app:layout_constraintStart_toEndOf="@id/multi_minutes_lamp_9"
+        app:layout_constraintTop_toTopOf="@id/guideline_66"
+        tools:background="@color/yellow" />
+
+    <View
+        android:id="@+id/multi_minutes_lamp_11"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_xxxsmall"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_83"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/multi_minutes_lamp_10"
+        app:layout_constraintTop_toTopOf="@id/guideline_66"
+        tools:background="@color/yellow" />
+    <!-- endregion -->
+
+    <!--region Minutes row -->
+    <View
+        android:id="@+id/minutes_lamp_1"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_margin="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/minutes_lamp_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline_83"
+        tools:background="@color/yellow" />
+
+    <View
+        android:id="@+id/minutes_lamp_2"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_margin="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/minutes_lamp_3"
+        app:layout_constraintStart_toEndOf="@id/minutes_lamp_1"
+        app:layout_constraintTop_toTopOf="@id/guideline_83"
+        tools:background="@color/yellow" />
+
+    <View
+        android:id="@+id/minutes_lamp_3"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_margin="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/minutes_lamp_4"
+        app:layout_constraintStart_toEndOf="@id/minutes_lamp_2"
+        app:layout_constraintTop_toTopOf="@id/guideline_83"
+        tools:background="@color/yellow" />
+
+    <View
+        android:id="@+id/minutes_lamp_4"
+        android:layout_width="@dimen/constraint_match_parent"
+        android:layout_height="@dimen/constraint_match_parent"
+        android:layout_margin="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/minutes_lamp_3"
+        app:layout_constraintTop_toTopOf="@id/guideline_83"
+        tools:background="@color/yellow" />
+    <!-- endregion -->
+
+    <!--region Guidelines -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="@dimen/guideline_33" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="@dimen/guideline_50" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_66"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="@dimen/guideline_66" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_83"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="@dimen/guideline_83"/>
+
+    <!-- endregion -->
+</androidx.constraintlayout.widget.ConstraintLayout>
