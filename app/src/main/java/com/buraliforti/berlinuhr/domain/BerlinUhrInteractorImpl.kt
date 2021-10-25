@@ -4,13 +4,11 @@ import androidx.annotation.WorkerThread
 import com.buraliforti.berlinuhr.domain.converters.BerlinUhrModelToBerlinUhrShapeColorModelConverter
 import com.buraliforti.berlinuhr.domain.converters.HoursMinutesSecondsEntityToModelConverter
 import com.buraliforti.berlinuhr.domain.converters.HoursMinutesSecondsToBerlinUhrModelConverter
-import com.buraliforti.berlinuhr.models.domain.BerlinUhrModel
-import com.buraliforti.berlinuhr.models.domain.HoursMinutesSecondsModel
 import com.buraliforti.berlinuhr.models.presentation.BerlinUhrShapeColorModel
 import javax.inject.Inject
 
 /**
- * Implementation of [BerlinUhrInteractor]Converter from [HoursMinutesSecondsModel] to [BerlinUhrModel]
+ * Implementation of [BerlinUhrInteractor]
  *
  * @param timeRepository provider of current time entity from one of available sources
  * @param toHoursMinutesSecondsModelConverter converter of HoursMinutesSecondsEntity to HoursMinutesSecondsModel

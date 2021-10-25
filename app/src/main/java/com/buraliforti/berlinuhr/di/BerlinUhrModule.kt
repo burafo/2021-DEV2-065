@@ -8,12 +8,16 @@ import com.buraliforti.berlinuhr.data.TimeRepositoryImpl
 import com.buraliforti.berlinuhr.domain.BerlinUhrInteractor
 import com.buraliforti.berlinuhr.domain.BerlinUhrInteractorImpl
 import com.buraliforti.berlinuhr.domain.TimeRepository
+import com.buraliforti.berlinuhr.domain.TimeToBerlinUhrScreenInteractor
+import com.buraliforti.berlinuhr.domain.TimeToBerlinUhrScreenInteractorImpl
 import com.buraliforti.berlinuhr.domain.converters.BerlinUhrModelToBerlinUhrShapeColorModelConverter
 import com.buraliforti.berlinuhr.domain.converters.BerlinUhrModelToBerlinUhrShapeColorModelConverterImpl
 import com.buraliforti.berlinuhr.domain.converters.HoursMinutesSecondsEntityToModelConverter
 import com.buraliforti.berlinuhr.domain.converters.HoursMinutesSecondsEntityToModelConverterImpl
 import com.buraliforti.berlinuhr.domain.converters.HoursMinutesSecondsToBerlinUhrModelConverter
 import com.buraliforti.berlinuhr.domain.converters.HoursMinutesSecondsToBerlinUhrModelConverterImpl
+import com.buraliforti.berlinuhr.domain.converters.HoursMinutesSecondsToBerlinUhrShapeColorModelConverter
+import com.buraliforti.berlinuhr.domain.converters.HoursMinutesSecondsToBerlinUhrShapeColorModelConverterImpl
 import com.buraliforti.berlinuhr.utils.RxSchedulers
 import com.buraliforti.berlinuhr.utils.RxSchedulersImpl
 import dagger.Binds
@@ -32,14 +36,9 @@ abstract class BerlinUhrModule {
     ): TimeProvider
 
     @Binds
-    abstract fun bindBerlinUhrModelToBerlinUhrShapeColorModel(
-        converter: BerlinUhrModelToBerlinUhrShapeColorModelConverterImpl,
-    ): BerlinUhrModelToBerlinUhrShapeColorModelConverter
-
-    @Binds
-    abstract fun bindHoursMinutesSecondsEntityToModelConverter(
-        converter: HoursMinutesSecondsEntityToModelConverterImpl,
-    ): HoursMinutesSecondsEntityToModelConverter
+    abstract fun bindSystemTimeProvider(
+        provider: SystemCalendarWrapperImpl,
+    ): SystemCalendarWrapper
 
     @Binds
     abstract fun bindBerlinUhrInteractor(
@@ -47,14 +46,31 @@ abstract class BerlinUhrModule {
     ): BerlinUhrInteractor
 
     @Binds
-    abstract fun bindSystemTimeProvider(
-        provider: SystemCalendarWrapperImpl,
-    ): SystemCalendarWrapper
+    abstract fun bindTimeToBerlinUhrScreenInteractor(
+        interactor: TimeToBerlinUhrScreenInteractorImpl,
+    ): TimeToBerlinUhrScreenInteractor
+
+
+    @Binds
+    abstract fun bindHoursMinutesSecondsEntityToModelConverter(
+        converter: HoursMinutesSecondsEntityToModelConverterImpl,
+    ): HoursMinutesSecondsEntityToModelConverter
 
     @Binds
     abstract fun bindHoursMinutesSecondsToBerlinUhrModelConverter(
         converter: HoursMinutesSecondsToBerlinUhrModelConverterImpl,
     ): HoursMinutesSecondsToBerlinUhrModelConverter
+
+    @Binds
+    abstract fun bindBerlinUhrModelToBerlinUhrShapeColorModel(
+        converter: BerlinUhrModelToBerlinUhrShapeColorModelConverterImpl,
+    ): BerlinUhrModelToBerlinUhrShapeColorModelConverter
+
+    @Binds
+    abstract fun bindHoursMinutesSecondsToBerlinUhrShapeColorModelConverterImpl(
+        converter: HoursMinutesSecondsToBerlinUhrShapeColorModelConverterImpl,
+    ): HoursMinutesSecondsToBerlinUhrShapeColorModelConverter
+
 
     @Binds
     abstract fun bindTimeRepository(

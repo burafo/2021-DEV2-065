@@ -4,7 +4,6 @@ import androidx.annotation.WorkerThread
 import com.buraliforti.berlinuhr.models.presentation.BerlinUhrShapeColorModel
 
 /**
- *
  * Interactor that is responsible for getting time data from system (device)
  * and preparing [BerlinUhrShapeColorModel] for presentation layer
  */
