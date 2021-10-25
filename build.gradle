@@ -5,6 +5,11 @@ buildscript {
     ext.buildgradle_version = '7.0.0'
     ext.daggerhilt_version = "2.38.1"
     ext.kotlin_version = "1.5.31"
+    ext.junit_version = "4.13"
+    ext.jupiter_version = "5.6.2"
+    ext.androidXTestExtKotlinRunnerVersion = '1.1.2'
+    ext.archTestingVersion = '2.1.0'
+    ext.espressoVersion = '3.3.0'
 
     repositories {
         google()
