@@ -1,12 +1,11 @@
 package com.buraliforti.berlinuhr.data
 
 import com.buraliforti.berlinuhr.models.data.HoursMinutesSecondsEntity
-import com.google.common.truth.Truth
 import com.google.common.truth.Truth.assertThat
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
-
+import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -46,5 +45,25 @@ internal class TimeProviderImplTest {
             minutes = 59,
             seconds = 59
         ))
+    }
+
+    @Test
+    fun getCurrentTime_IllegalState_MinValue() {
+        every { systemTime.getHours() } returns Int.MIN_VALUE
+        every { systemTime.getMinutes() } returns Int.MIN_VALUE
+        every { systemTime.getSeconds() } returns Int.MIN_VALUE
+        assertThrows(IllegalStateException::class.java) {
+            timeProvider.getCurrentTime()
+        }
+    }
+
+    @Test
+    fun getCurrentTime_IllegalState_MaxValue() {
+        every { systemTime.getHours() } returns Int.MAX_VALUE
+        every { systemTime.getMinutes() } returns Int.MAX_VALUE
+        every { systemTime.getSeconds() } returns Int.MAX_VALUE
+        assertThrows(IllegalStateException::class.java) {
+            timeProvider.getCurrentTime()
+        }
     }
 }
